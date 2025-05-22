@@ -5,7 +5,7 @@ if (localStorage.getItem("submitted")) {
   document.getElementById("result").textContent = "You have already submitted this test. Thank you!";
   document.getElementById("result").classList.remove("hidden");
 } else {
-  let timeLeft = 600;
+  let timeLeft = 300;
   let timer = setInterval(() => {
     document.getElementById("time").textContent = timeLeft;
     if (timeLeft <= 0) {
