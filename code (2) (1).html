@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Koption Courses Presentation</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            color: #222;
+            overflow-x: hidden;
+        }
+        .presentation {
+            width: 80vw;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+        header {
+            background: #0052cc;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        header p {
+            margin: 0.5rem 0;
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+        .slide {
+            padding: 2rem;
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        h2 {
+            color: #0052cc;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            position: relative;
+            padding-left: 20px;
+        }
+        li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+            color: #00a86b;
+        }
+        .highlight {
+            font-weight: 700;
+            color: #ffbf00;
+            background: #333a001a;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .footer-nav {
+            background: #f0f0f0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        button.nav-btn {
+            background: #0052cc;
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.3rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button.nav-btn:hover {
+            background: #003d99;
+        }
+        .footer-nav .slide-counter {
+            align-self: center;
+            font-weight: 600;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <header>
+            <h1>Koption Courses</h1>
+            <p>Unlock Your Potential with Our Comprehensive Courses</p>
+        </header>
+        <section class="slides">
+            <!-- Slide 1: Certificate of Excellence -->
+            <article class="slide active">
+                <h2>✅ Certificate of Excellence</h2>
+                <p>At the end of each course, learners receive an industry-recognized <span class="highlight">Certificate of Excellence</span> from Koption, validating their new skills. This certificate is a powerful asset for your resume, LinkedIn, or freelance portfolio—showcasing your readiness for top jobs or entrepreneurial success.</p>
+            </article>
+
+            <!-- Slide 2: Placement Master -->
+            <article class="slide">
+                <h2>0. Placement Master</h2>
+                <p><strong>Description:</strong> Unlock your career with the Placement Master course—your ultimate guide to cracking job interviews, building resumes that get shortlisted, and mastering workplace communication.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Resume building & ATS optimization</li>
+                    <li>Interview preparation (HR + Technical)</li>
+                    <li>LinkedIn & personal branding</li>
+                    <li>Communication & email writing</li>
+                    <li>Real-time mock interviews</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>This course turns job rejections into offer letters. Land the job you’ve always wanted!</p>
+            </article>
+
+            <!-- Slide 3: E-commerce Master with AI -->
+            <article class="slide">
+                <h2>1. E-commerce Master with AI</h2>
+                <p><strong>Description:</strong> Launch and scale your own online store using the power of AI.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Setting up Shopify & marketplaces</li>
+                    <li>Product research & AI-based niche selection</li>
+                    <li>AI-generated content & SEO for e-commerce</li>
+                    <li>Facebook/Instagram/Google Ads for your store</li>
+                    <li>Customer retention & upselling with automation</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Build your own online business or manage stores for clients—your gateway to 6-figure freelancing or passive income.</p>
+            </article>
+
+            <!-- Slide 4: 10x Your Business with AI -->
+            <article class="slide">
+                <h2>2. 10x Your Business with AI</h2>
+                <p><strong>Description:</strong> Learn how to use AI to save time, reduce costs, and multiply your profits.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>AI in marketing, sales, operations & HR</li>
+                    <li>Automating daily business tasks</li>
+                    <li>AI for customer service (chatbots, CRM)</li>
+                    <li>Predictive analytics & sales forecasting</li>
+                    <li>Creating SOPs with AI</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Future-proof your business and achieve 10x output with minimal human dependency.</p>
+            </article>
+
+            <!-- Slide 5: Freelance Pro -->
+            <article class="slide">
+                <h2>3. Freelance Pro</h2>
+                <p><strong>Description:</strong> Break free from 9-5. Become a high-earning freelancer in writing, design, tech, or AI services—even if you’re starting from scratch.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Top freelance platforms (Upwork, Fiverr, etc.)</li>
+                    <li>Profile setup, proposal writing & client handling</li>
+                    <li>Pricing & negotiation</li>
+                    <li>Delivering quality + building recurring clients</li>
+                    <li>AI tools to increase freelance productivity</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Start earning in dollars. Control your time, income, and clients.</p>
+            </article>
+
+            <!-- Slide 6: Power BI Master & Excel AI Master -->
+            <article class="slide">
+                <h2>4. Power BI Master & Excel AI Master</h2>
+                <p><strong>Description:</strong> Master business intelligence and data visualization using Microsoft Power BI and AI-enhanced Excel.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Power BI dashboards from scratch</li>
+                    <li>Data analysis with DAX & Power Query</li>
+                    <li>Excel AI features (data insights, smart fill)</li>
+                    <li>Automating reports & KPIs</li>
+                    <li>Real-world case studies & reporting</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Data skills are in-demand across all industries. Get hired faster and earn more.</p>
+            </article>
+
+            <!-- Slide 7: Python with AI -->
+            <article class="slide">
+                <h2>5. Python with AI</h2>
+                <p><strong>Description:</strong> Start coding with Python—the world’s most popular language—and integrate it with AI tools for automation, analysis, and innovation.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Python fundamentals</li>
+                    <li>APIs, automation scripts & data handling</li>
+                    <li>Using Python for AI models & chatbots</li>
+                    <li>Web scraping & real-world projects</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Coding + AI = unlimited career growth in tech, freelancing, or entrepreneurship.</p>
+            </article>
+
+            <!-- Slide 8: Trading Master Pro -->
+            <article class="slide">
+                <h2>6. Trading Master Pro</h2>
+                <p><strong>Description:</strong> Become a smart trader. Master stock market, crypto, and AI trading strategies without relying on guesswork.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Basics of stocks, crypto, forex</li>
+                    <li>Technical & fundamental analysis</li>
+                    <li>Risk management & psychology</li>
+                    <li>AI bots & automation tools</li>
+                    <li>Live trading sessions</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Build an extra income stream from the markets, whether full-time or part-time.</p>
+            </article>
+
+            <!-- Slide 9: Digital Marketing with AI -->
+            <article class="slide">
+                <h2>7. Digital Marketing with AI</h2>
+                <p><strong>Description:</strong> Master digital marketing and scale your brand using AI.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Social media strategy & content</li>
+                    <li>AI tools for ads, writing, design</li>
+                    <li>Email marketing & lead funnels</li>
+                    <li>Personal branding & networking</li>
+                    <li>Influencer growth hacking</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Marketing yourself with AI is non-negotiable today.</p>
+            </article>
+
+            <!-- Slide 10: AI Tools & ChatGPT -->
+            <article class="slide">
+                <h2>8. AI Tools & ChatGPT</h2>
+                <p><strong>Description:</strong> Explore the most powerful AI tools on the internet.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>ChatGPT for work & business</li>
+                    <li>AI content creation (text, image, video)</li>
+                    <li>Productivity tools (Notion AI, Copy.ai)</li>
+                    <li>Using AI in daily tasks & client projects</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Become 10x faster and smarter at everything you do.</p>
+            </article>
+
+            <!-- Slide 11: AI Automation -->
+            <article class="slide">
+                <h2>9. AI Automation</h2>
+                <p><strong>Description:</strong> Learn to create automation workflows that save hours daily.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Zapier, Make. com, IFTTT, and Webhooks</li>
+                    <li>Automating emails, CRMs, tasks, and more</li>
+                    <li>AI + automation use cases</li>
+                    <li>No-code bots for business</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Automate your life and business for maximum results.</p>
+            </article>
+
+            <!-- Slide 12: Video Editing with AI -->
+            <article class="slide">
+                <h2>10. Video Editing with AI</h2>
+                <p><strong>Description:</strong> Learn video editing using AI tools—create reels, YouTube content, promos, and more.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>CapCut, Descript, Pictory, Runway ML</li>
+                    <li>Scriptwriting + voiceover with AI</li>
+                    <li>Editing shorts, long-form & ads</li>
+                    <li>Monetizing edited videos</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>This skill will get you jobs, freelance gigs, or grow your brand.</p>
+            </article>
+
+            <!-- Slide 13: Code with AI -->
+            <article class="slide">
+                <h2>11. Code with AI</h2>
+                <p><strong>Description:</strong> Don’t just code—code smarter with AI.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Prompt engineering for code</li>
+                    <li>AI-assisted coding workflows</li>
+                    <li>Building mini projects with AI</li>
+                    <li>Debugging & documentation generation</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Cut learning time by half and land developer roles faster with AI.</p>
+            </article>
+
+            <!-- Slide 14: AI Social Media Manager -->
+            <article class="slide">
+                <h2>12. AI Social Media Manager</h2>
+                <p><strong>Description:</strong> Manage social media for brands using AI tools.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>Content calendars & strategy</li>
+                    <li>AI tools for content & captions</li>
+                    <li>Scheduling & automation (Buffer, Later)</li>
+                    <li>Performance reports & engagement growth</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Start your agency or get hired to manage brand pages like a pro.</p>
+            </article>
+
+            <!-- Slide 15: Sales & Marketing with AI -->
+            <article class="slide">
+                <h2>13. Sales & Marketing with AI</h2>
+                <p><strong>Description:</strong> Close more deals and generate more leads using AI.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>AI for lead generation & follow-ups</li>
+                    <li>Sales copywriting & pitch deck creation</li>
+                    <li>AI CRM tools for tracking & engagement</li>
+                    <li>Sales funnel creation</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Double your conversions and master the sales game using tech and automation.</p>
+            </article>
+
+            <!-- Slide 16: Hiring and HR with AI -->
+            <article class="slide">
+                <h2>14. Hiring and HR with AI</h2>
+                <p><strong>Description:</strong> Recruit and manage talent like a pro using modern AI-powered HR tools.</p>
+                <h3>What You’ll Learn:</h3>
+                <ul>
+                    <li>AI in resume screening & shortlisting</li>
+                    <li>Employee onboarding & automation</li>
+                    <li>HR analytics & surveys</li>
+                    <li>AI tools for employee engagement</li>
+                </ul>
+                <h3>Why You Need It:</h3>
+                <p>Smart HR equals smart teams. If you’re in HR or managing people—this course is a must.</p>
+            </article>
+        </section>
+
+        <div class="footer-nav">
+            <button class="nav-btn" onclick="prevSlide()">Previous</button>
+            <span class="slide-counter">Slide <span id="current-slide">1</span> of 14</span>
+            <button class="nav-btn" onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            document.getElementById('current-slide').textContent = index + 1;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
