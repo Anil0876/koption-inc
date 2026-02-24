@@ -1,103 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>English Test</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Prospecting & Closing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4e54c8;
+            --secondary: #8f94fb;
+            --accent: #ffd700; /* Gold */
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --success: #00b894;
+            --danger: #ff7675;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: var(--light);
+        }
+
+        /* Background decoration */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .c1 { width: 300px; height: 300px; background: var(--primary); top: -50px; left: -50px; }
+        .c2 { width: 400px; height: 400px; background: var(--secondary); bottom: -100px; right: -100px; }
+
+        /* Main Container */
+        .presentation-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 85vh;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px 20px 0 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 12.5%; /* 100% / 8 slides */
+            border-radius: 20px 20px 0 0;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Slides */
+        .slide {
+            display: none;
+            flex: 1;
+            padding: 40px 60px;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeSlideUp 0.6s ease-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Content Styling */
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        li::before {
+            content: "➜";
+            color: var(--accent);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sub-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+            margin-left: 30px;
+        }
+
+        /* Grid for Slide 3 (FORM) */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-box {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--danger);
+        }
+        .response-card {
+            background: rgba(0,184,148, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--success);
+            margin-top: -10px;
+        }
+
+        /* Navigation Buttons */
+        .controls {
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-prev {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        .btn-prev:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        .btn-next {
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+        .btn-next:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Animations */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Specific slide adjustments */
+        .big-stat {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>English Test by KOPTION INC.</h1>
-    <h2>Share Score ScreenShot After Submit</h2>
-    <div id="timer">Time Left: <span id="time">300</span> seconds</div>
-    <form id="quiz-form">
-      <!-- Questions start -->
-      <div class="question"><p>1. Choose the correct sentence:</p>
-        <label><input type="radio" name="q1" value="a"> He don't understand the issue.</label><br>
-        <label><input type="radio" name="q1" value="b"> He doesn't understand the issue.</label><br>
-        <label><input type="radio" name="q1" value="c"> He didn’t understood the issue.</label></div>
-      <div class="question"><p>2. Which of the following is the most polite response to a complaint?</p>
-        <label><input type="radio" name="q2" value="a"> That’s not our fault.</label><br>
-        <label><input type="radio" name="q2" value="b"> Calm down.</label><br>
-        <label><input type="radio" name="q2" value="c"> I understand your concern. Let me help you with that.</label></div>
-      <div class="question"><p>3. "I will respond to your query ___ 24 hours."</p>
-        <label><input type="radio" name="q3" value="a"> in</label><br>
-        <label><input type="radio" name="q3" value="b"> on</label><br>
-        <label><input type="radio" name="q3" value="c"> by</label></div>
-      <div class="question"><p>4. What is the past tense of “speak”?</p>
-        <label><input type="radio" name="q4" value="a"> Speaked</label><br>
-        <label><input type="radio" name="q4" value="b"> Spoke</label><br>
-        <label><input type="radio" name="q4" value="c"> Spoken</label></div>
-      <div class="question"><p>5. Most professional response to: “I’m having trouble accessing my account.”</p>
-        <label><input type="radio" name="q5" value="a"> That’s not my department.</label><br>
-        <label><input type="radio" name="q5" value="b"> Try again later.</label><br>
-        <label><input type="radio" name="q5" value="c"> I’m sorry to hear that. Let me assist you right away.</label></div>
-      <div class="question"><p>6. Which sentence is grammatically correct?</p>
-        <label><input type="radio" name="q6" value="a"> The issue has been resolved successfully.</label><br>
-        <label><input type="radio" name="q6" value="b"> The issue has resolve successful.</label><br>
-        <label><input type="radio" name="q6" value="c"> The issue resolved success.</label></div>
-      <div class="question"><p>7. What does "escalate" mean in customer service?</p>
-        <label><input type="radio" name="q7" value="a"> To delay the response</label><br>
-        <label><input type="radio" name="q7" value="b"> To transfer to a higher authority</label><br>
-        <label><input type="radio" name="q7" value="c"> To ignore the request</label></div>
-      <div class="question"><p>8. Correct punctuation:</p>
-        <label><input type="radio" name="q8" value="a"> Can I help you</label><br>
-        <label><input type="radio" name="q8" value="b"> Can I help you?</label><br>
-        <label><input type="radio" name="q8" value="c"> Can I help you.</label></div>
-      <div class="question"><p>9. Formal email closing:</p>
-        <label><input type="radio" name="q9" value="a"> Cheers</label><br>
-        <label><input type="radio" name="q9" value="b"> Later</label><br>
-        <label><input type="radio" name="q9" value="c"> Kind regards</label></div>
-      <div class="question"><p>10. Synonym for “resolve”:</p>
-        <label><input type="radio" name="q10" value="a"> Avoid</label><br>
-        <label><input type="radio" name="q10" value="b"> Solve</label><br>
-        <label><input type="radio" name="q10" value="c"> Delay</label></div>
-      <div class="question"><p>11. “Frustrated” is closest in meaning to:</p>
-        <label><input type="radio" name="q11" value="a"> Happy</label><br>
-        <label><input type="radio" name="q11" value="b"> Annoyed</label><br>
-        <label><input type="radio" name="q11" value="c"> Confused</label></div>
-      <div class="question"><p>12. Professional apology:</p>
-        <label><input type="radio" name="q12" value="a"> My bad</label><br>
-        <label><input type="radio" name="q12" value="b"> I’m sorry for the inconvenience</label><br>
-        <label><input type="radio" name="q12" value="c"> Oops</label></div>
-      <div class="question"><p>13. “Please feel free to ___ out.”</p>
-        <label><input type="radio" name="q13" value="a"> call</label><br>
-        <label><input type="radio" name="q13" value="b"> reach</label><br>
-        <label><input type="radio" name="q13" value="c"> touch</label></div>
-      <div class="question"><p>14. Correct sentence:</p>
-        <label><input type="radio" name="q14" value="a"> The product did not met my expectations.</label><br>
-        <label><input type="radio" name="q14" value="b"> The product doesn’t meet my expectations.</label><br>
-        <label><input type="radio" name="q14" value="c"> The product not meet my expectations.</label></div>
-      <div class="question"><p>15. “Clarify” means:</p>
-        <label><input type="radio" name="q15" value="a"> Complicate</label><br>
-        <label><input type="radio" name="q15" value="b"> Argue</label><br>
-        <label><input type="radio" name="q15" value="c"> Make clear</label></div>
-      <div class="question"><p>16. Plural of “analysis”:</p>
-        <label><input type="radio" name="q16" value="a"> Analysises</label><br>
-        <label><input type="radio" name="q16" value="b"> Analysis</label><br>
-        <label><input type="radio" name="q16" value="c"> Analyses</label></div>
-      <div class="question"><p>17. Response to “I didn’t receive the confirmation email.”</p>
-        <label><input type="radio" name="q17" value="a"> Try again.</label><br>
-        <label><input type="radio" name="q17" value="b"> You probably typed it wrong.</label><br>
-        <label><input type="radio" name="q17" value="c"> I’m sorry about that. Let me resend it.</label></div>
-      <div class="question"><p>18. “Responsible ___ handling customer feedback.”</p>
-        <label><input type="radio" name="q18" value="a"> with</label><br>
-        <label><input type="radio" name="q18" value="b"> for</label><br>
-        <label><input type="radio" name="q18" value="c"> of</label></div>
-      <div class="question"><p>19. “The issue ___ resolved when I checked again.”</p>
-        <label><input type="radio" name="q19" value="a"> was</label><br>
-        <label><input type="radio" name="q19" value="b"> were</label><br>
-        <label><input type="radio" name="q19" value="c"> be</label></div>
-      <div class="question"><p>20. “Please be ___, our agents are currently busy.”</p>
-        <label><input type="radio" name="q20" value="a"> patient</label><br>
-        <label><input type="radio" name="q20" value="b"> patience</label><br>
-        <label><input type="radio" name="q20" value="c"> patients</label></div>
 
-      <!-- Questions end -->
-      <button type="submit">Submit</button>
-    </form>
-    <div id="result" class="hidden"></div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+
+    <div class="presentation-container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <h1 style="text-align: center;">Master the Art of<br>Prospecting & Closing</h1>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span style="background: var(--accent); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: bold;">The Millionaire Mindset</span>
+            </div>
+            <ul>
+                <li><span class="highlight">Hum Salesman nahi, Business Consultants hain.</span></li>
+                <li><span class="highlight">Hamara kaam "Bechna" nahi, "Select" karna hai.</span></li>
+                <li><span class="highlight">Confidence is 90%, Content is 10%.</span></li>
+                <li><strong>Goal:</strong> Har call se ek Relationship ya ek Selection nikalna hai.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h2>The Perfect Greeting (The First 30 Seconds)</h2>
+            <ul>
+                <li>
+                    <div><span class="highlight">Energy Check:</span> Aapki awaaz mein smile honi chahiye.</div>
+                </li>
+                <li>
+                    <div><span class="highlight">Script:</span> "Hi [Name], main [Your Name] baat kar raha hoon [Location] se. Maine aapka enquiry form dekha tha..."</div>
+                </li>
+                <li>
+                    <div><span class="highlight">Permission:</span> "Kya ye sahi waqt hai 2 minute baat karne ka?"</div>
+                </li>
+                <li>
+                    <div><span class="highlight">Rule:</span> Naam ka istemal 2-3 baar karein (Personal Touch).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h2>Need Analysis - The 'X-Ray' Phase</h2>
+            <p style="margin-bottom: 20px;">Bina Problem Jane, Solution Mat Do!</p>
+            <div class="form-grid">
+                <div class="form-box"><strong>1. Family:</strong> Background samjho.</div>
+                <div class="form-box"><strong>2. Occupation:</strong> Job/Studies se kitne khush hain?</div>
+                <div class="form-box"><strong>3. Recreation:</strong> Khali samay mein kya karte hain?</div>
+                <div class="form-box"><strong>4. Money:</strong> Kitna extra kamana chahte hain?</div>
+            </div>
+            <div style="margin-top: 20px; border: 1px dashed var(--accent); padding: 15px;">
+                <strong>Killer Questions:</strong><br>
+                - "Aapko extra income kyu chahiye?"<br>
+                - "Agar ye kaam nahi mila, toh aapka Plan B kya hai?"
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h2>Filter - Serious vs. Not Serious</h2>
+            <div class="form-grid">
+                <div style="border: 1px solid var(--success); padding: 20px; border-radius: 10px;">
+                    <h3 style="color: var(--success);">Case A: Serious Hai?</h3>
+                    <p>-> Move to <strong>Plan Pitch</strong>.</p>
+                </div>
+                <div style="border: 1px solid var(--danger); padding: 20px; border-radius: 10px;">
+                    <h3 style="color: var(--danger);">Case B: Serious Nahi Hai?</h3>
+                    <p>-> Give a <strong>Reality Check</strong>.</p>
+                </div>
+            </div>
+            <ul style="margin-top: 20px;">
+                <li>"Mehangai (Inflation) 10% se badh rahi hai, kya aapki salary badh rahi hai?"</li>
+                <li>"Degree se zyada Skills ki value hai."</li>
+                <li>"Career Growth = Digital Business + Network Marketing."</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <h2>Why Network Marketing & WFH?</h2>
+            <h3 style="color: var(--accent); margin-bottom: 15px;">The Future of Work</h3>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                <div style="flex:1; background: rgba(255,255,255,0.05); padding: 15px; text-align: center;">
+                    <div style="font-size: 2rem;">🏠</div>
+                    <strong>Benefits of WFH</strong><br>
+                    Zero Travel Cost
